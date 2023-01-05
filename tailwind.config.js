@@ -11,9 +11,14 @@ module.exports = {
       'sm': '0.125rem',
       'md': '0.375rem',
       'lg': '0.5rem',
+      'xl': '0.75rem',
       'full': '9999px',
+      'medium': '16px',
       'large': '32px',
-    }
+    },
+    container: {
+      center: true
+    },
   },
   plugins: [],
 }

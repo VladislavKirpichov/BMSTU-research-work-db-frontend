@@ -4,6 +4,7 @@ import PrivateRoute from './components/router/PrivateRoute'
 import Admin from './pages/Admin'
 import AdminLogin from './pages/AdminLogin'
 import Main from './pages/Main'
+import Services from './pages/Services'
 
 const Router = () => {
   return (
@@ -13,6 +14,7 @@ const Router = () => {
               <Route path="admin/login" element={<AdminLogin />} />
               {/* <PrivateRoute rest={{ path: 'admin' }} component={Admin} /> */}
               <Route path="admin" element={<Admin />} />
+              <Route path="services" element={<Services />} />
               <Route path="*" element={<p>404...</p>} />
           </Routes>
       </BrowserRouter>
