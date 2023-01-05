@@ -2,10 +2,12 @@ import { combineReducers } from 'redux'
 import { configureStore } from "@reduxjs/toolkit";
 import { userReducer } from './reducers/userReducer'
 import { servicesReducer } from './reducers/servicesReducer';
+import { profileReducer } from './reducers/profileReducer';
 
 export const rootReducer = combineReducers({
     usersStore: userReducer,
-    servicesStore: servicesReducer
+    servicesStore: servicesReducer,
+    profileStore: profileReducer
 })
 
 export const store = configureStore({

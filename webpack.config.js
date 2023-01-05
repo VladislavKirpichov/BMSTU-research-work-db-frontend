@@ -45,17 +45,14 @@ module.exports = {
             },
         ],
     },
-    // optimization: {
-    //     runtimeChunk: 'single',
-    // },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'static', 'index.html'),
+            template: path.join(__dirname, 'src/static', 'index.html'),
         }),
         new CopyPlugin({
             patterns: [
-                path.resolve(__dirname, './src/data')
-            ]
+                path.resolve(__dirname, './src/data'),
+            ],
         })
     ],
     performance: {
