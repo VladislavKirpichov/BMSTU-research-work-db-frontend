@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../components/ui/Header'
 import { Link } from 'react-router-dom'
+import PrimaryButton from '../components/ui/buttons/PrimaryButton';
 
 const Main = () => {
   return (
@@ -17,9 +18,7 @@ const Main = () => {
                       dolor eget, elementum purus.
                   </p>
                   <Link to="/admin/login">
-                      <button className="btn bg-blue-500 text-white py-2 hover:bg-blue-600 px-4 border-blue-700 border-2 drop-shadow-sm hover:drop-shadow-lg rounded-lg text-md">
-                          Войти
-                      </button>
+                      <PrimaryButton>Войти</PrimaryButton>
                   </Link>
               </div>
               <div className="md:col-span-6 col-span-12">

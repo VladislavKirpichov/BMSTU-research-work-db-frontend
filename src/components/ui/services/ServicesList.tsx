@@ -31,11 +31,11 @@ const ServicesList = () => {
     return (
         <div className="flex flex-col gap-4">
             <div className="grid grid-cols-2 flex-col gap-2">
-                {services.slice(0, offset).map((service: Service) => (
+                {services?.slice(0, offset).map((service: Service) => (
                     <ServiceCard key={service.id} service={service} />
                 ))}
             </div>
-            {services.length > offset && (
+            {services?.length > offset && (
                 <div className='flex items-center justify-center'>
                     <PrimaryButton onClick={increaseOffset}>
                        Загрузить еще

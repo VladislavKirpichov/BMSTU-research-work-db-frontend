@@ -1,6 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import Card from '../components/UI-kit/Card'
+import Employers from '../components/ui/cards/Employers'
+import Leads from '../components/ui/cards/Leads'
+import Reports from '../components/ui/cards/Reports'
 import Services from '../components/ui/cards/Services'
 import Users from '../components/ui/cards/Users'
 import Layout from '../components/ui/Layout'
@@ -13,13 +14,9 @@ const Admin = () => {
             </h3>
             <Users />
             <Services />
-            <Card>
-                <h3>Услуги</h3>
-            </Card>
-            <Card>
-                <h3>Сотрудники</h3>
-            </Card>
-            <Link to="/">Go back</Link>
+            <Leads />
+            <Employers />
+            <Reports />
         </Layout>
     );
 }

@@ -1,3 +1,5 @@
+import { AUTH_URLS } from "../../api/configs/urls"
+import { callApi } from "../../api/network"
 import { ProfileAction, ProfileState } from "../reducers/profileReducer"
 
 export const PROFILE_ACTIONS = {
@@ -22,10 +24,16 @@ const __TEMP_PROFILE__: ProfileState = {
 }
 
 export const loadProfile = (dispatch: Function) => {
-    return async () => {
-        // const response = fetch()
+    return async (id: number) => {
+        const jsonResponse = await callApi.GET(`/api/user/${id.toString()}`, {})
+        dispatch(setProfile(jsonResponse as ProfileState))
+    }
+}
 
-        dispatch(setProfile(__TEMP_PROFILE__))
+export const auth = (dispatch: Function) => {
+    return async () => {
+        const jsonResponse = await callApi.GET('/api/auth', {})
+        dispatch(setProfile(jsonResponse as ProfileState))
     }
 }
 
@@ -45,5 +53,58 @@ export const authorizeOnLoad = (dispatch: Function) => {
         // })
 
         dispatch(setProfile(__TEMP_PROFILE__))
+    }
+}
+
+type SignInRequest = {
+    email: string;
+    password: string;
+}
+
+type SignUpRequest = {
+    name: string;
+    email: string;
+    password: string;
+}
+
+export const signIn = (dispatch: Function, navigate: Function) => {
+    return async (email: string, password: string) => {
+        const request: SignInRequest = {
+            email,
+            password,
+        }
+
+        const jsonResponse = callApi.POST(AUTH_URLS.SIGN_IN, {
+            body: JSON.stringify(request)
+        })
+
+        navigate()
+    }
+}
+
+export const signUp = (dispatch: Function, navigate: Function) => {
+    return async (name: string, email: string, password: string) => {
+        const request: SignUpRequest = {
+            name,
+            email,
+            password
+        }
+
+        const jsonResponse = callApi.POST(AUTH_URLS.SIGN_UP, {
+            body: JSON.stringify(request)
+        })
+        
+        jsonResponse.then((body) => {
+            dispatch(
+                setProfile({
+                    id: body as number,
+                    email,
+                    name,
+                    authorized: true,
+                })
+            );
+
+            navigate();
+        });
     }
 }

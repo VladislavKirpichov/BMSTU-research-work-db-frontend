@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
+import { Link } from 'react-router-dom'
 import { loadUsers } from '../../../redux/actions/userActions'
-import Card from '../../UI-kit/Card'
-import CardList from '../../UI-kit/CardList'
+import Card from './Card'
+import CardList from './CardList'
 
 const Users = () => {
     const users = useSelector((state: any) => state.usersStore.users)
@@ -18,9 +19,11 @@ const Users = () => {
             <h3 className="font-semibold">Пользователи</h3>
             <CardList items={users} />
             <div className="flex flex-row gap-2 justify-center">
-                <button className="font-bold text-center hover:text-slate-700">
-                    Посмотреть всех пользователей
-                </button>
+                <Link to="/admin/users">
+                    <p className="font-bold text-center hover:text-slate-700">
+                        Посмотреть всех пользователей
+                    </p>
+                </Link>
             </div>
         </Card>
     );

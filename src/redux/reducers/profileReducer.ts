@@ -14,9 +14,9 @@ export type ProfileAction = ({
 
 const defaultState: ProfileState = {
     id: 0,
-    name: "Vladislav",
-    email: "email@mail.ru",
-    authorized: true
+    name: "",
+    email: "",
+    authorized: false
 }
 
 export const profileReducer = (state: ProfileState = defaultState, action: ProfileAction) => {
