@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { shallowEqual, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Admin } from '../../redux/reducers/adminReducer';
 import { ProfileState } from '../../redux/reducers/profileReducer';
 
 const Header = () => {
-    const profile: ProfileState = useSelector(
-        (state: any) => state.profileStore
-    );
+    const profile: ProfileState = useSelector((state: any) => state.profileStore, shallowEqual);
     const admin: Admin = useSelector((state: any) => state.adminStore.admin)
 
     const [open, setOpen] = useState(false);
+
+    console.log('PROFILE ', profile);
 
     const toggleOpen = () => setOpen(open => !open)
 

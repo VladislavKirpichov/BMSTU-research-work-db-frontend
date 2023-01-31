@@ -22,9 +22,9 @@ const defaultState: ProfileState = {
 export const profileReducer = (state: ProfileState = defaultState, action: ProfileAction) => {
     switch (action.type) {
         case PROFILE_ACTIONS.SET:
-            return {...state, profile: action.profile}
+            return { ...state, ...action.profile as ProfileState }
         case PROFILE_ACTIONS.DELETE:
-            return {...state, profile: defaultState}
+            return { ...state, ...defaultState }
         default:
             return state
     }

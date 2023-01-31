@@ -85,7 +85,7 @@ export const callApi: Api = {
     },
     POST: async (url: string, requestFields: PostRequestInit = {}, apiUrl: string = SERVER_URL) => {
         const response = await fetch(apiUrl + url, {...HEADERS.POST, ...requestFields})
-        console.log(response)
+
         if (!response.ok) {
             throw {
                 status: response.status,
@@ -96,7 +96,7 @@ export const callApi: Api = {
         try {
             return await response.json()
         } catch (e) {
-            return
+            return await response.text()
         }
     },
     PUT: async (url: string, requestFields: PutRequestInit = {}, apiUrl: string = SERVER_URL) => {
@@ -112,7 +112,7 @@ export const callApi: Api = {
         try {
             return await response.json()
         } catch (e) {
-            return
+            return await response.text()
         }
     },
     DELETE: async (url: string, requestFields: DeleteRequestInit = {}, apiUrl: string = SERVER_URL) => {
@@ -128,7 +128,7 @@ export const callApi: Api = {
         try {
             return await response.json()
         } catch (e) {
-            return
+            return await response.text()
         }
     },
 }

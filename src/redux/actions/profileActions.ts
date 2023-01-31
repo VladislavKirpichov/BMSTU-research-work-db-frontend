@@ -32,15 +32,21 @@ export const loadProfile = (dispatch: Function) => {
 
 export const auth = (dispatch: Function) => {
     return async () => {
-        const jsonResponse = await callApi.GET('/api/auth', {})
-        dispatch(setProfile(jsonResponse as ProfileState))
+        const jsonResponse: any = await callApi.GET('/api/auth', {})
+        console.log(jsonResponse)
+        dispatch(setProfile({
+            id: jsonResponse.profile.id,
+            email: jsonResponse.profile.email,
+            name: jsonResponse.profile.name,
+            authorized: true,
+        }))
     }
 }
 
 export const logout = (dispatch: Function) => {
     return () => {
         // const response = await fetch("api/logout")
-        
+
         dispatch(deleteProfile());
     }
 }
@@ -74,7 +80,7 @@ export const signIn = (dispatch: Function, navigate: Function) => {
             password,
         }
 
-        const jsonResponse = callApi.POST(AUTH_URLS.SIGN_IN, {
+        const jsonResponse = await callApi.POST(AUTH_URLS.SIGN_IN, {
             body: JSON.stringify(request)
         })
 
@@ -90,21 +96,19 @@ export const signUp = (dispatch: Function, navigate: Function) => {
             password
         }
 
-        const jsonResponse = callApi.POST(AUTH_URLS.SIGN_UP, {
+        const jsonResponse: any = await callApi.POST(AUTH_URLS.SIGN_UP, {
             body: JSON.stringify(request)
         })
         
-        jsonResponse.then((body) => {
-            dispatch(
-                setProfile({
-                    id: body as number,
-                    email,
-                    name,
-                    authorized: true,
-                })
-            );
+        dispatch(
+            setProfile({
+                id: jsonResponse.id,
+                email,
+                name,
+                authorized: true,
+            })
+        );
 
-            navigate();
-        });
+        navigate()
     }
 }
