@@ -18,7 +18,7 @@ const Header = () => {
         <nav className="navbar flex fixed w-screen navbar-expand-lg shadow-sm py-2 bg-white relative">
             <div className="px-6 w-full flex flex-wrap items-wrap justify-between">
                 <div className="grow">
-                    <Link to="/">Hello world</Link>
+                    <Link to="/"><p className='font-medium text-lg'>Child center</p></Link>
                 </div>
                 <p className="grow text-center">
                     <Link to={'/services '}>Посмотреть все услуги</Link>

@@ -38,6 +38,7 @@ const Services = () => {
             {
                 id: 0,
                 name: formData.get('name') as string,
+                cost: parseInt(formData.get('cost') as string) as number,
                 description: (formData.get('description') || '') as string,
             },
             getState
@@ -57,6 +58,7 @@ const Services = () => {
                 {
                     id: 0,
                     name: formData.get('name') as string,
+                    cost: parseInt(formData.get('cost') as string) as number,
                     description: (formData.get('description') || '') as string,
                 },
                 getState

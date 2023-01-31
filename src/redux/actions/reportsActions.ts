@@ -6,7 +6,7 @@ export const REPORTS_ACTIONS = {
     ADD: 'REPORTS_ACTIONS',
 }
 
-export const addReports = (reports: Report): ReportAction => ({
+export const addReports = (reports: Report[]): ReportAction => ({
     type: REPORTS_ACTIONS.ADD,
     reports,
 })

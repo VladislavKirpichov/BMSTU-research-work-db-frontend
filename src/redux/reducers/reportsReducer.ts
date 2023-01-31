@@ -17,7 +17,7 @@ const initialState: ReportsState = {
 }
 
 export type ReportAction = {
-    reports: Report
+    reports: Report[]
 } & Action
 
 export const reportsReducer = (state: ReportsState = initialState, action: ReportAction) => {

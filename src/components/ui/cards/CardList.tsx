@@ -18,7 +18,8 @@ const CardList = (props: Props) => {
         setOpen(open => !open)
     }
 
-    const handleEdit = (service: Service, e: MouseEvent<Element>) => {
+    // TODO: edit
+    const handleEdit = (/*service: Service, */e: MouseEvent<Element>) => {
         setService(service)
         toggleOpen(e)
     }

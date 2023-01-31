@@ -32,6 +32,7 @@ const ServiceCard = (props: Props) => {
             <div className="flex flex-col gap-2 md:col-span-1 col-span-2 p-4 rounded-xl border-slate-100 border">
                 <h1 className="font-bold">{props.service.name}</h1>
                 <p>{props.service.description}</p>
+                <p>{props.service.cost} ₽</p>
                 <div>
                     {profile.authorized ? (
                         <PrimaryButton onClick={toggleOpen}>

@@ -8,7 +8,7 @@ const Main = () => {
       <>
           <Header />
           <div className="container grid grid-cols-12 gap-4 mx-auto min-h-screen">
-              <div className="md:col-span-6 col-span-12 flex gap-2 flex-col justify-center">
+              <div className="md:col-span-6 col-span-12 flex gap-4 flex-col justify-center">
                   <h1 className="font-bold text-3xl">Лучший детский центр</h1>
                   <p className='font-normal'>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -17,9 +17,14 @@ const Main = () => {
                       dictum rutrum. Pellentesque sit amet nisl aliquam, auctor
                       dolor eget, elementum purus.
                   </p>
-                  <Link to="/admin/login">
+                  <div className='flex gap-2 flex-row'>
+                  <Link to="/signin">
                       <PrimaryButton>Войти</PrimaryButton>
                   </Link>
+                  <Link to="/admin/login">
+                      <PrimaryButton>Войти как админ</PrimaryButton>
+                  </Link>
+                  </div>
               </div>
               <div className="md:col-span-6 col-span-12">
                 <h3>Some photo here</h3>

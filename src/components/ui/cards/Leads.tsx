@@ -31,7 +31,7 @@ const Leads = () => {
                         <p>Name: {lead.name}</p>
                     </div>
                     <div>
-                        <p>To: {lead.service_name}</p>
+                        <p>To: {(lead as any).service_name}</p>
                     </div>
                 </React.Fragment>
             ))}

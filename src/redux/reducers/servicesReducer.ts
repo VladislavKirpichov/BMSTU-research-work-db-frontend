@@ -4,6 +4,7 @@ import { Action } from "../types"
 export type Service = {
     id: number,
     name: string,
+    cost: number,
     description: string,
 }
 
