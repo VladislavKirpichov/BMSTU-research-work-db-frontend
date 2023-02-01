@@ -1,4 +1,4 @@
-import React, { EventHandler, MouseEventHandler, ReactNode, useState } from 'react'
+import React, { MouseEventHandler, ReactNode } from 'react'
 
 type Props = {
     open: boolean;

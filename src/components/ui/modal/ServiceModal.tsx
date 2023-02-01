@@ -29,6 +29,7 @@ const ServiceModal: React.FC<Props> = (props: Props) => {
                   />
                   <Input
                       label="Цена"
+                      type='number'
                       name="cost"
                       required={true}
                       placeholder={props.service?.name}

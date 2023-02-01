@@ -34,15 +34,15 @@ const Services = () => {
 
         const formData = new FormData(e.currentTarget);
 
-        createLoader(
-            {
-                id: 0,
+        const data = {
+            id: 0,
                 name: formData.get('name') as string,
                 cost: parseInt(formData.get('cost') as string) as number,
                 description: (formData.get('description') || '') as string,
-            },
-            getState
-        );
+        }
+
+        console.log(data)
+        createLoader(data, getState);
 
         // @ts-ignore
         toggleOpen()
@@ -72,6 +72,7 @@ const Services = () => {
     const deleteServiceHandler = (service: unknown): MouseEventHandler<HTMLButtonElement> => {
         return (e: any) => {
             e.preventDefault();
+            console.log(service)
             deleteLoader((service as Service).id, getState);
         };
     }

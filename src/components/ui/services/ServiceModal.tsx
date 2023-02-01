@@ -2,7 +2,7 @@ import React, { MouseEventHandler } from 'react'
 import { Service } from '../../../redux/reducers/servicesReducer'
 import Modal from '../modal/Modal'
 import PrimaryButton from '../buttons/PrimaryButton'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { apply } from '../../../redux/actions/servicesActions'
 
 type Props = {
@@ -15,7 +15,8 @@ const ServiceModal: React.FC<Props> = (props: Props) => {
     const userId = useSelector((state: any) => state.profileStore.id)
 
     const handleApply: React.MouseEventHandler<Element> = (e: React.MouseEvent) => {
-        apply(userId, props.service.id)
+        apply(userId, props.service.id);
+        e.stopPropagation();
     }
 
     return (
@@ -31,6 +32,10 @@ const ServiceModal: React.FC<Props> = (props: Props) => {
                 <p>
                     <span className="font-semibold">Описание: </span>
                     {props.service.description}
+                </p>
+                <p>
+                    <span className="font-semibold">Стоимость: </span>
+                    {props.service.cost} ₽
                 </p>
                 <PrimaryButton onClick={handleApply}>Записаться</PrimaryButton>
             </div>

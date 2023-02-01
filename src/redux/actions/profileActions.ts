@@ -33,7 +33,6 @@ export const loadProfile = (dispatch: Function) => {
 export const auth = (dispatch: Function) => {
     return async () => {
         const jsonResponse: any = await callApi.GET('/api/auth', {})
-        console.log(jsonResponse)
         dispatch(setProfile({
             id: jsonResponse.profile.id,
             email: jsonResponse.profile.email,

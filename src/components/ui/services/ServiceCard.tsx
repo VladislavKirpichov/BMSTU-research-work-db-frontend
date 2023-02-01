@@ -4,7 +4,7 @@ import { ProfileState } from '../../../redux/reducers/profileReducer';
 import { Service } from '../../../redux/reducers/servicesReducer';
 import PrimaryButton from '../buttons/PrimaryButton';
 import UnavailableButton from '../buttons/UnavailableButton';
-import ServiceModal from '../modal/ServiceModal';
+import ServiceModal from './ServiceModal';
 
 type Props = {
     service: Service;
@@ -17,7 +17,6 @@ const ServiceCard = (props: Props) => {
 
     const [open, setOpen] = useState(false);
     const toggleOpen = () => {
-        console.log(open);
         setOpen((open) => !open);
     }
 
@@ -27,7 +26,6 @@ const ServiceCard = (props: Props) => {
                 open={open}
                 service={props.service}
                 onClickModal={toggleOpen}
-                isNew={true}
             />
             <div className="flex flex-col gap-2 md:col-span-1 col-span-2 p-4 rounded-xl border-slate-100 border">
                 <h1 className="font-bold">{props.service.name}</h1>

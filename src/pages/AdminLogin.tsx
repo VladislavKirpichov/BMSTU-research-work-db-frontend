@@ -24,8 +24,8 @@ const AdminLogin = () => {
                 formData.get('username') as string,
                 formData.get('password') as string
             );
-            navigateToAdmin()
         } catch (e) {
+            console.log(e)
             setError(() => true)
         }
     };

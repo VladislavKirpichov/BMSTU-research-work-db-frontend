@@ -21,13 +21,16 @@ const deleteServiceHelper = (services: Service[], deleteId: number): Service[] =
 
 export const loadServices = (dispatch: Function) => {
     return async () => {
-        const response: ServicesResponse = await callApi.GET(SERVICES_URL) as ServicesResponse  
+        const response: ServicesResponse = await callApi.GET(SERVICES_URL) as ServicesResponse
+        console.log(response);
         dispatch(updateServices(response.services))
     }
 }
 
 type CreateServiceRequest = {
-    name: string
+    name: string;
+    description: string;
+    cost: number;
 }
 
 type CreateServiceResponse = {
@@ -37,7 +40,9 @@ type CreateServiceResponse = {
 export const createService = (dispatch: Function) => {
     return async (service: Service, getState: Function) => {
         const request: CreateServiceRequest = {
-            name: service.name
+            name: service.name,
+            description: service.description,
+            cost: service.cost,
         }
 
         const response: CreateServiceResponse = await callApi.POST(SERVICES_ADMIN_URL, {
@@ -92,7 +97,7 @@ export const apply = async (serviceId: number, userId: number) => {
         user_id: userId,
         service_id: serviceId
     }
-
+    
     const response: ApplyResponse = await callApi.POST(APPLY_URL, {
         body: JSON.stringify(request)
     }) as ApplyResponse

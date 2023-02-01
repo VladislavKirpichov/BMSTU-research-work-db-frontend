@@ -21,20 +21,19 @@ const Leads = () => {
         setLimit((limit: any) => limit + LIMIT_RANGE)
     }
 
+    console.log(leads)
+
     return (
         <Card>
             <h3 className='font-semibold'>Заявки</h3>
-            {leads?.slice(0, limit).map((lead: Lead) => (
-                <React.Fragment key={lead.id}>
-                    <div className='flex flex-row gap-2'>
-                        <p>Email: {lead.email}</p>
-                        <p>Name: {lead.name}</p>
+            <div className='flex flex-col gap-4'>
+                {leads?.slice(0, limit).map((lead: Lead) => (
+                    <div className='flex flex-col gap-2' key={lead.id}>
+                        <p>Email пользователя: {lead.email}</p>
+                        <p>Название услуги: {(lead as any).service_name}</p>
                     </div>
-                    <div>
-                        <p>To: {(lead as any).service_name}</p>
-                    </div>
-                </React.Fragment>
-            ))}
+                ))}
+            </div>
             {leads?.length >= limit &&
                 <button
                     onClick={handleMore}
